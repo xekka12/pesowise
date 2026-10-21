@@ -18,6 +18,20 @@ function directDatabaseUrl(value) {
 
 run(['run', 'build', '-w', 'client']);
 run(['exec', '-w', 'server', '--', 'prisma', 'generate']);
+run([
+  'exec',
+  '-w',
+  'server',
+  '--',
+  'esbuild',
+  'src/vercel.ts',
+  '--bundle',
+  '--platform=node',
+  '--format=esm',
+  '--outfile=dist/vercel.js',
+  '--packages=external',
+  '--alias:@pesowise/shared=../shared/src/index.ts',
+]);
 run(['exec', '-w', 'server', '--', 'prisma', 'migrate', 'deploy'], {
   ...process.env,
   DATABASE_URL: directDatabaseUrl(process.env.DATABASE_URL),

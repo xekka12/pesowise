@@ -3,7 +3,7 @@
   "buildCommand": "npm run build:vercel",
   "framework": "express",
   "functions": {
-    "app.ts": {
+    "app.mjs": {
       "includeFiles": "client/dist/**"
     }
   },

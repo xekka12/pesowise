@@ -3,7 +3,7 @@ import path from 'node:path';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import express from 'express';
-import helmet from 'helmet';
+import * as helmetNs from 'helmet';
 import { config, serverRootDir } from './config.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import { requireAuth, requireRequestHeader } from './middleware/auth.js';
@@ -23,7 +23,7 @@ export function createApp() {
   app.disable('x-powered-by');
   app.set('trust proxy', 1);
   app.use(
-    helmet({
+    helmetNs.default({
       crossOriginEmbedderPolicy: false,
       contentSecurityPolicy: {
         directives: {
