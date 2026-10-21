@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "concurrently -k -n db,api,web -c gray,blue,green \"npm run db:daemon -w server\" \"npm run dev -w server\" \"npm run dev -w client\"",
     "build": "npm run build -w server && npm run build -w client",
-    "build:vercel": "npm run build -w client && npm exec -w server -- prisma generate && npm exec -w server -- prisma migrate deploy",
+    "build:vercel": "node scripts/vercel-build.mjs",
     "test": "npm run test -w server",
     "lint": "npm run lint -w server && npm run lint -w client",
     "typecheck": "npm run typecheck -w server && npm run typecheck -w client",
