@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="160" viewBox="0 0 720 160">
+  <g transform="translate(16,16) scale(2)">
+    <rect width="64" height="64" rx="16" fill="#0B1F3A"/>
+    <path fill="#F8FAFC" fill-rule="evenodd" d="M23.2 12.5h12.6c6.7 0 11 3.9 11 9.6 0 5.6-4.3 9.5-11 9.5H28.6V51h-5.4V12.5zm5.4 4.7v9.2h7c3.2 0 5.2-1.6 5.2-4.6s-2-4.6-5.2-4.6h-7z"/>
+    <path fill="#34D399" d="M16.5 27.4h26.2v3.5H16.5z"/>
+    <path fill="#059669" d="M16.5 33.6h21.4v3.5H16.5z"/>
+  </g>
+  <text x="176" y="104" font-family="Segoe UI" font-size="72" font-weight="600">
+    <tspan fill="#F8FAFC">Peso</tspan><tspan fill="#34D399">Wise</tspan>
+  </text>
+</svg>

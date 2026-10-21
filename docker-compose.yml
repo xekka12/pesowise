@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: pesowise
+      POSTGRES_PASSWORD: pesowise_dev_password
+      POSTGRES_DB: pesowise
+    ports:
+      - "5432:5432"
+    volumes:
+      - pesowise_pg:/var/lib/postgresql/data
+      - ./docker/init-test-db.sql:/docker-entrypoint-initdb.d/init-test-db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pesowise -d pesowise"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pesowise_pg:

@@ -1,0 +1,27 @@
+{
+  "name": "pesowise",
+  "private": true,
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n db,api,web -c gray,blue,green \"npm run db:daemon -w server\" \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w server && npm run build -w client",
+    "build:vercel": "npm run build -w client && npm exec -w server -- prisma generate && npm exec -w server -- prisma migrate deploy",
+    "test": "npm run test -w server",
+    "lint": "npm run lint -w server && npm run lint -w client",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w client",
+    "db:migrate": "npm run db:migrate -w server",
+    "db:seed": "npm run db:seed -w server",
+    "db:daemon": "npm run db:daemon -w server",
+    "start": "npm run start -w server"
+  },
+  "dependencies": {
+    "express": "^4.22.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
